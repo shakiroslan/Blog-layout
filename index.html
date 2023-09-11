@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind configuration script -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            custom1:'#F8F8F8',
+            custom2: '#F2F0F2'
+          },
+          fontFamily: {
+            'poppins' : 'Poppins'
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- Jquery UI -->
+  <script src="jquery-ui.min.js" ></script>
+  <!-- Mobile links -->
+  <script type="text/javascript">
+      let toggle = false;
+      $(document).ready(()=>{
+          $('#navBtn').click(()=> {
+            // $('#navMenu').slideToggle(200);
+            toggle = !toggle
+            if( toggle == false) {
+              // close
+              $('#navMenu').hide('slide', {direction: 'left'}, 300);
+            } else {
+              $('#navMenu').show('slide', {direction: 'left'}, 300);
+            }
+          })
+          $('#closeBtn').click(()=> {
+            toggle = false;
+            // close
+            $('#navMenu').hide('slide', {direction: 'left'}, 300);
+          })
+        });
+  </script>
+</head>
+<body>
+  <main class="relative font-poppins">
+      <header class="fixed top-0 w-full h-[76px] border-b bg-white">
+        <!-- Mobile menu -->
+        <div id="navMenu" class="fixed hidden h-full bg-white border ring-gray-800 shadow-xl w-full text-xl  sm:w-1/2 sm:text-2xl">
+          <div class="flex flex-col w-full">
+              <!-- Logo -->
+              <div class="flex items-center justify-between font-medium p-8 border-b">
+                <a class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 36 37" fill="none">
+                    <circle cx="18" cy="18.5" r="18" fill="url(#paint0_linear_2_18)"/>
+                  </svg>
+                  <div>
+                    Blog
+                  </div>
+                </a>
+                <div id="closeBtn" class="">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>                  
+                </div>
+              </div>
+              <!-- Links -->
+              <div class="flex flex-col gap-1">
+                <a class="p-8 border-b" href="/">Categories</a>
+                <a class="p-8 border-b" href="/">Membership</a>
+                <a class="p-8 border-b" href="/">Resources</a>
+              </div>
+              <!-- Subscribe button -->
+              <div class="p-8">
+                <button class="text-lg font-medium border rounded-3xl text-white bg-black py-2.5 px-3.5">
+                  Subscribe
+                </button>
+              </div>
+          </div>
+        </div> 
+        <!-- Navigation -->
+        <nav class="max-w-screen-lg h-full p-2.5 flex justify-between items-center mx-auto">
+          <!-- Logo -->
+            <a class="flex items-center gap-2" href="/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 36 37" fill="none">
+                <circle cx="18" cy="18.5" r="18" fill="url(#paint0_linear_2_18)"/>
+                <defs>
+                  <linearGradient id="paint0_linear_2_18" x1="2.69877e-07" y1="13" x2="31" y2="31.5" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FF2B2B"/>
+                    <stop offset="1" stop-color="#1A92AC"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="text-lg font-medium">
+                Blog
+              </div>
+            </a>
+          <!-- Links -->
+            <div class="flex-1 flex justify-center items-center gap-2.5 hidden text-base lg:flex">
+              <a class="hover:text-gray-600 duration-200" href="/">Categories</a>
+              <a class="hover:text-gray-600 duration-200" href="/">Membership</a>
+              <a class="hover:text-gray-600 duration-200" href="/">Resources</a>
+            </div>
+          <!-- Subscribe button -->    
+              <button class="text-base font-medium border rounded-3xl text-white bg-black py-2.5 px-3.5 hidden lg:flex hover:bg-gray-800">
+                Subscribe
+              </button>
+          <!-- Mobile nav button -->
+            <div id="navBtn" class="lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-7 h-7">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+                </svg>                       
+            </div>
+        </nav>
+      </header>
+      <!-- Hero -->
+      <section class="w-full">
+        <div class="max-w-screen-lg flex-1 flex justify-center h-[470px] mx-auto lg:h-[700px] lg:items-center">
+          <!-- Heading & Button -->
+          <div class="flex flex-col justify-center items-center w-[570px] p-6 lg:block  xl:w-[700px]">
+            <h2 class="mb-10 text-center mt-6  text-3xl font-semibold md:text-4xl md:mt-8 lg:text-6xl lg:text-left">
+              Spark, Evolve, Conquer: Path to Personal Excellence
+            </h2>
+            <h3 class="text-center text-xl mb-5 md:text-2xl lg:text-left">
+              In this engaging blog, embark on a transformative adventure to uncover the secrets of self-inspiration and empowerment.
+            </h3>
+            <div>
+              <button class=" font-medium border rounded-3xl text-white bg-black py-2.5 px-3.5 hover:bg-gray-800">
+                Subscribe
+              </button>
+            </div> 
+          </div>
+          <!-- Hero image -->
+          <div>
+            <img class="object-cover h-full w-[445px] hidden lg:block" src="/assets/8300697189feeb4e0a2ebfc6074be8c9.png" alt="Being with nature.">
+          </div>  
+        </div>
+      </section>
+      <!-- Self-improvement -->
+      <section class="w-full">
+        <div class="max-w-screen-lg mx-auto mt-8">
+           <!-- Topic -->
+           <div class="flex justify-center items-center lg:justify-between">
+              <h2 class="font-medium text-3xl text-center">Self-improvement</h2>
+              <p class="text-gray-400 font-medium hidden lg:flex">View self-improvement <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 w-5 h-5 inline">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>                                                
+              </span></p>
+           </div>
+           <!-- Articles -->
+           <div class="grid place-items-center gap-12 py-3 md:grid-cols-2 lg:pt-8 lg:grid-cols-3">
+              <!-- Article -->
+              <div class="grid gap-2.5 w-80 h-[579px]">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/c466ff18e9adf7e9fa4f4dfd062dcb6b.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                  </svg>                                      
+                  <div class="text-gray-400">Self-improvement</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Navigating the path of self-discovery: unveiling your true self</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">August 26, 2023</p>
+              </div>
+              <!-- Article -->
+              <div class="grid gap-2.5 w-80 h-[579px]">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/bd8363db9370588124261a790c64b4ef.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">                                      
+                  <div class="text-gray-400">Self-improvement</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Exploring within: The quest for self- discovery </a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">January 6, 2023</p>
+              </div>
+              <!-- Article -->
+              <div class="grid gap-2.5 w-80 h-[579px]">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/85b7e887ae3f58196304869664939482.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">                                      
+                  <div class="text-gray-400">Self-improvement</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Journey to self-understanding: embracing yourself</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">December 25, 2023</p>
+              </div>
+           </div>
+        </div>
+      </section>
+      <!-- Productivity -->
+      <section class="w-full">
+        <div class="max-w-screen-lg mx-auto mt-8">
+           <!-- Topic -->
+           <div class="flex justify-center items-center lg:justify-between">
+              <h2 class="font-medium text-3xl text-center">Productivity</h2>
+              <p class="text-gray-400 font-medium hidden lg:flex">View productivity<span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 w-5 h-5 inline">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>                                                
+              </span></p>
+           </div>
+           <!-- Articles -->
+           <div class="grid place-items-center gap-12  py-3 md:grid-cols-2 lg:pt-8 lg:grid-cols-3">
+              <!-- Article -->
+              <div class="grid gap-2.5 w-80 h-[579px]">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/507818cf581b7a8038aa0fe2b1c685d9.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                  </svg>                                      
+                  <div class="text-gray-400">Productivity</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Mastering productivity: unleash your full efficiency potential</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">February 12, 2023</p>
+              </div>
+              <!-- Article -->
+              <div class="grid gap-2.5 w-80 h-[579px]">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/dd50b9f8474f049297b8af354d159c27.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">                                      
+                  <div class="text-gray-400">Productivity</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">The art of getting things done: A guide to boosting productivity</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">June 6, 2023</p>
+              </div>
+              <!-- Article -->
+              <div class="grid gap-2.5 w-80 h-[579px]">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/4c52a07fb6b3203f26a985b72a4df16b.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">                                      
+                  <div class="text-gray-400">Productivity</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Productivity unleashed: strategies for achieving more in less time</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">April 10, 2023</p>
+              </div>
+           </div>
+        </div>
+      </section>
+      <!-- Work-life balance -->
+      <section class="w-full">
+        <div class="max-w-screen-lg mx-auto mt-8">
+           <!-- Topic -->
+           <div class="flex justify-center items-center lg:justify-between">
+              <h2 class="font-medium text-3xl text-center">Work-life balance</h2>
+              <p class="text-gray-400 font-medium hidden lg:flex">View work-life balance<span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 w-5 h-5 inline">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>                                                
+              </span></p>
+           </div>
+           <!-- Articles -->
+           <div class="grid place-items-center gap-12 py-3 md:grid-cols-3 lg:pt-8 lg:grid-cols-4">
+              <!-- Article -->
+              <div class="grid gap-6 w-56">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/b5bb5056d08fe1118f64d9fa2073396a.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                  </svg>                                      
+                  <div class="text-gray-400">Work-life balance</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Harmonizing work and life: strategies for a fulfilling balance</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">April 11, 2023</p>
+              </div>
+              <!-- Article -->
+              <div class="grid gap-6 w-56">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/5ecbb1ef866851d709a6c925ac05e9d6.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">                                      
+                  <div class="text-gray-400">Work-life balance</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Thriving in equilibrium: navigating the work-life balance</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">March 22, 2023</p>
+              </div>
+              <!-- Article -->
+              <div class="grid gap-6 w-56">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/f54bd4703606394aa1bc0af59ce806cb.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">                                      
+                  <div class="text-gray-400">Work-life balance</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Balancing act: crafting a life of achievement and well-being</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">May 26, 2023</p>
+              </div>
+              <!-- Article -->
+              <div class="grid gap-6 w-56">
+                <!-- Image -->
+                <div class="">
+                  <img class="object-cover w-[308px] h-[374px] rounded-xl" src="/assets/cc05ecde04dcfba9361ea321a661737e.png" alt="woman portrait"/>
+                </div>
+                <!-- Tag -->
+                <div class="flex gap-1 items-center w-max bg-gray-200 px-2.5 py-1 rounded-xl">                                      
+                  <div class="text-gray-400">Work-life balance</div>
+                </div>
+                <!-- Heading -->
+                <a href="/" class="text-2xl h-28 hover:text-gray-400 duration-200">Balancing act: crafting a life of achievement and well-being</a>
+                <!-- Date -->
+                <p class="text-sm text-gray-400">May 26, 2023</p>
+              </div>
+           </div>
+        </div>
+      </section>
+      <!-- Latest -->
+      <section class="w-full">
+        <div class="max-w-screen-lg mx-auto mt-8">
+          <div class="flex justify-center items-center lg:justify-start">
+            <h2 class="font-medium text-3xl text-center">Latest</h2>
+          </div>
+          <!-- Articles row 1-->
+          <div class="grid place-items-center gap-5 grid-cols-1 py-3 px-2  md:grid-cols-2 lg:px-0 lg:border-b">
+            <!-- Article -->
+            <div class="flex gap-3">
+              <!-- Image -->
+              <div>
+                <img class="w-[297px] h-[170px] object-cover rounded-xl" src="/assets/b5bb5056d08fe1118f64d9fa2073396a.png" alt=""/>
+              </div>
+              <!-- Tag / Heading / Date -->
+              <div class="grid gap-3 content-center">
+                <div class="flex items-center justify-center w-max bg-gray-200 text-[9px] px-1.5 py-0.5 rounded-md text-gray-400">
+                  Work-life balance
+                </div>
+                <a href="/" class="font-medium hover:text-gray-400 duration-200 w-48">
+                  Harmonizing work and life: strategies for a fulfilling balance
+                </a>
+                <div class="text-[9px] text-gray-400">April 11, 2023</div>
+              </div>
+            </div>
+            <!-- Article -->
+            <div class="flex gap-3">
+              <!-- Image -->
+              <div>
+                <img class="w-[297px] h-[170px] object-cover rounded-xl" src="/assets/dd50b9f8474f049297b8af354d159c27.png" alt=""/>
+              </div>
+              <!-- Tag / Heading / Date -->
+              <div class="grid gap-3 content-center">
+                <div class="flex items-center justify-center w-max bg-gray-200 text-[9px] px-1.5 py-0.5 rounded-md text-gray-400">
+                  Productivity
+                </div>
+                <a href="/" class="font-medium hover:text-gray-400 duration-200 w-48">
+                  The art of getting things done: A guide to boosting productivity
+                </a>
+                <div class="text-[9px] text-gray-400">June 6, 2023</div>
+              </div>
+            </div>
+          </div>
+          <!-- Articles row 2--> 
+          <div class="grid place-items-center gap-5 grid-cols-1 py-3 px-2  md:grid-cols-2 lg:px-0">
+            <!-- Article -->
+            <div class="flex gap-3">
+              <!-- Image -->
+              <div>
+                <img class="w-[297px] h-[170px] object-cover rounded-xl" src="/assets/85b7e887ae3f58196304869664939482.png" alt=""/>
+              </div>
+              <!-- Tag / Heading / Date -->
+              <div class="grid gap-3 content-center">
+                <div class="flex items-center justify-center w-max bg-gray-200 text-[9px] px-1.5 py-0.5 rounded-md text-gray-400">
+                  Self-improvement
+                </div>
+                <a href="/" class="font-medium hover:text-gray-400 duration-200 w-48">
+                  Journey to self-understanding: embracing yourself
+                </a>
+                <div class="text-[9px] text-gray-400">December 25, 2023</div>
+              </div>
+            </div>
+            <!-- Article -->
+            <div class="flex gap-3">
+              <!-- Image -->
+              <div>
+                <img class="w-[297px] h-[170px] object-cover rounded-xl" src="/assets/5ecbb1ef866851d709a6c925ac05e9d6.png" alt=""/>
+              </div>
+              <!-- Tag / Heading / Date -->
+              <div class="grid gap-3 content-center">
+                <div class="flex items-center justify-center w-max bg-gray-200 text-[9px] px-1.5 py-0.5 rounded-md text-gray-400">
+                  Work-life balance
+                </div>
+                <a href="/" class="font-medium hover:text-gray-400 duration-200 w-48">
+                  Thriving in equilibrium: navigating the work-life balance
+                </a>
+                <div class="text-[9px] text-gray-400">March 22, 2023</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Subscribe --> 
+      <section class="w-full bg-custom1 mt-28 lg:h-[318px]">
+        <div class="max-w-screen-lg mx-auto">
+          <div class="flex justify-center p-10 lg:grid-cols-2 lg:p-0 lg:justify-between">
+            <!-- Text & button -->
+            <div class="text-center grid grid-cols-1 gap-4 content-center lg:text-left lg:gap-5">
+              <div class="text-lg font-medium lg:text-[40px]">Subscribe for more</div>
+              <div class="text-md text-gray-400 lg:w-96 lg:text-xl">Don't miss the opportunity to delve deeper into the subjects you care about.</div>
+              <div>
+                <button class="font-medium text-sm border rounded-3xl text-white bg-black py-2.5 px-3.5 hover:bg-gray-800 lg:text-medium">Subscribe</button>
+              </div>
+            </div>
+            <!-- Image -->
+            <div>
+              <img class="hidden flex 2-[506px] h-[318px] object-cover lg:flex" src="/assets/0008e29291bcbe9e7f44dd8b802451e6.png" alt="indoor pool "/>
+            </div> 
+          </div> 
+        </div>
+      </section>
+      <!-- Footer -->
+      <section class="w-full bg-custom2 lg:h-[415px]">
+          <div class="max-w-screen-lg mx-auto pt-24 px-4  lg:px-0">
+            <!-- Logo / Text / Links-->
+            <div class="grid gap-10 md:grid-cols-2 pb-16 border-b lg:items-center">
+              <!-- Logo / Text -->
+              <div class="grid gap-6">
+                <!-- Blog log -->
+                <div>
+                  <div class="flex gap-1.5 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 35 36"  class="lg:h-[35px] lg:w-[35px]">
+                      <ellipse cx="17.3887" cy="18" rx="17.3887" ry="18" fill="url(#paint0_linear_11_233)"/>
+                      <defs>
+                        <linearGradient id="paint0_linear_11_233" x1="2.60711e-07" y1="12.5" x2="30.4817" y2="30.0729" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#FF2B2B"/>
+                          <stop offset="1" stop-color="#1A92AC"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <div class="text-xl font-medium lg:text-2xl">
+                      Blog
+                    </div>
+                  </div>
+                </div>
+                <!-- Text -->
+                <div class="w-64">
+                  Join our newsletter to be at the forefront of accessing exclusive content and expert insights.
+                </div>
+                <!-- Socials -->
+                <div class="flex gap-3.5">
+                    <a href="/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="fill-black hover:fill-gray-400 duration-200">
+                          <path d="M6.2825 18.7499C13.83 18.7499 17.9587 12.4961 17.9587 7.08239C17.9587 6.90739 17.9587 6.72989 17.9513 6.55489C18.7551 5.973 19.4488 5.25258 20 4.42739C19.2491 4.75845 18.4535 4.97665 17.6388 5.07489C18.4969 4.56194 19.1397 3.75485 19.4475 2.80364C18.6412 3.28129 17.7588 3.61661 16.8387 3.79489C16.2202 3.13617 15.4018 2.69979 14.5101 2.55334C13.6185 2.40689 12.7034 2.55854 11.9067 2.98481C11.1099 3.41108 10.476 4.08818 10.1031 4.91122C9.73012 5.73425 9.63897 6.65731 9.84375 7.53739C8.21218 7.45558 6.61602 7.03172 5.1588 6.29332C3.70159 5.55491 2.41586 4.51844 1.385 3.25114C0.861675 4.15499 0.701967 5.22414 0.938308 6.24147C1.17465 7.2588 1.78932 8.14805 2.6575 8.72864C2.00692 8.70654 1.37065 8.53184 0.8 8.21864V8.27489C0.801122 9.22174 1.12913 10.1392 1.72859 10.8721C2.32805 11.605 3.16218 12.1085 4.09 12.2974C3.73783 12.3944 3.37404 12.4428 3.00875 12.4411C2.75123 12.4419 2.49423 12.4181 2.24125 12.3699C2.50348 13.185 3.01409 13.8976 3.70156 14.408C4.38903 14.9184 5.21892 15.201 6.075 15.2161C4.62069 16.3584 2.82425 16.9779 0.975 16.9749C0.649151 16.9763 0.323529 16.9575 0 16.9186C1.87689 18.1152 4.05662 18.7506 6.2825 18.7499Z"/>
+                        </svg>
+                    </a>  
+                    <a href="/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="fill-black hover:fill-gray-400 duration-200">
+                            <path d="M11.2812 10C11.2812 13.1063 8.75625 15.625 5.64 15.625C4.90033 15.626 4.16771 15.4813 3.48396 15.1991C2.80022 14.917 2.17875 14.5029 1.65502 13.9806C1.1313 13.4583 0.715587 12.8379 0.431617 12.1549C0.147648 11.4719 0.000984258 10.7397 0 10C0 6.89251 2.525 4.37501 5.64 4.37501C6.37978 4.37386 7.11253 4.51845 7.79642 4.80052C8.48031 5.0826 9.10193 5.49663 9.62579 6.01898C10.1496 6.54133 10.5655 7.16175 10.8495 7.84482C11.1336 8.52789 11.2803 9.26023 11.2812 10ZM17.4688 10C17.4688 12.925 16.2062 15.295 14.6488 15.295C13.0912 15.295 11.8288 12.9238 11.8288 10C11.8288 7.07501 13.0912 4.70501 14.6488 4.70501C16.2062 4.70501 17.4688 7.07626 17.4688 10ZM20 10C20 12.62 19.5562 14.7438 19.0075 14.7438C18.46 14.7438 18.0163 12.6188 18.0163 10C18.0163 7.38001 18.46 5.25626 19.0087 5.25626C19.5562 5.25626 20 7.38001 20 10Z"/>
+                        </svg>     
+                    </a>
+                </div>
+              </div>
+              <!-- Links -->
+              <div class="flex flex-col gap-2 md:text-right">
+                <a class="duration-200 hover:text-gray-400"  href="/">Subscribe</a>
+                <a class="duration-200 hover:text-gray-400" href="/">Categories</a>
+                <a class="duration-200 hover:text-gray-400" href="/">Membership</a>
+                <a class="duration-200 hover:text-gray-400" href="/">Resources</a>
+              </div>
+            </div>
+            <!-- Copyright -->
+            <div class="pt-10 pb-5 text-xs text-gray-400 md:text-sm">
+              Copyright © 2023 Blog. Developed with TailwindCSS
+            </div>
+          </div>
+      </section>
+  </main>
+</body>
+</html>
